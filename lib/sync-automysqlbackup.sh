@@ -25,6 +25,14 @@ eval `$ENVVARS`
 DIR_LOCAL="/var/lib/automysqlbackup/";
 DIR_SERVER="~/automysqlbackup-sync";
 
+echo "Now syncing automysql backup";
+echo "---";
+echo "HELP: Run from root cron like this:"
+echo "$BASEDIR/ttools/backups/lib/sync-automysqlbackup.sh";
+echo "---";
+
+exit;
+
 
 rsync -avz -e "ssh -p $ENV_SSHPORT" $DIR_LOCAL $ENV_SSHUSER@$ENV_HOST:$DIR_SERVER
 
