@@ -1,5 +1,5 @@
 #!/bin/bash
-#This script syncs automysqldump to a specified backup environment
+#This script syncs the current site to a specified backup environment
 
 
 #Getting environment specific vars
@@ -22,14 +22,14 @@ eval `$ENVVARS`
 #"the contents of dir1"
 
 #TODO this could be made configurable if needed
-DIR_LOCAL="/var/lib/automysqlbackup/";
-DIR_SERVER="~/automysqlbackup-sync";
+DIR_LOCAL="$BASEDIR/temp/dumps/latest/";
+DIR_SERVER="~/latest-sync";
 
-echo "Now syncing automysql backup";
-echo "---";
-echo "HELP: Run from root cron like this:"
-echo "$BASEDIR/ttools/backups/lib/sync-automysqlbackup.sh";
-echo "---";
+echo "Now dumping and syncing";
+
+$BASEDIR/ttools/sitesync-core/lib/dump-current-site.sh dump;
+
+
 
 #TODO the port part should be configurable
 rsync -avz -e "ssh -p $ENV_SSHPORT" $DIR_LOCAL $ENV_SSHUSER@$ENV_HOST:$DIR_SERVER
