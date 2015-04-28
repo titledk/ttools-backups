@@ -30,7 +30,9 @@ echo "Now dumping and syncing";
 $BASEDIR/ttools/sitesync-core/lib/dump-current-site.sh dump;
 
 
-
-#TODO the port part should be configurable
-rsync -avz -e "ssh -p $ENV_SSHPORT" $DIR_LOCAL $ENV_SSHUSER@$ENV_HOST:$DIR_SERVER
-
+RSYNC_CMD="$DIR_LOCAL $ENV_SSHUSER@$ENV_HOST:$DIR_SERVER"
+if [ "$ENV_CUSTOM_RSYNCPORTSTR" == "" ]; then
+	rsync -avz $RSYNC_CMD
+else
+	rsync -avz -e "$ENV_CUSTOM_RSYNCPORTSTR" $RSYNC_CMD
+fi
