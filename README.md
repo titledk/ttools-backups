@@ -7,7 +7,8 @@ As local backups are mostly part of the sitesync modules, **this module focuses 
 
 1. Add module: `git submodule add https://github.com/titledk/ttools-backups.git ttools/backups;`
 2. Add a `Backups` environment to `config.yml` - this is the environment that we'll be backing up to.
-3. Make sure that servers that need to be backed up can access the `Backups` environment!
+3. Make sure that servers that need to be backed up can access the `Backups` environment!  
+_Do so by adding the server's public key to `~/.ssh/authorized_keys` on the backup server_
 4. Set up a cronjob, see below
 
 ###  Configuration example
