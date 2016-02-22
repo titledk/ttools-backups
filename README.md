@@ -1,18 +1,16 @@
 # ttools-backups
 Helps you to use Terminal Tools to perform backups.
-As local backups are mostly part of the sitesync modules, this module focuses mainly on remote backups.
-
-_We'll be implementing different methods as needed._
+As local backups are mostly part of the sitesync modules, **this module focuses mainly on remote backups**.
 
 
-## Configure ttools
+## Installation and setup of backup to separate server
 
-Add a `Backups` environment to `config.yml` - this is the environment that we'll be backing up to.
+1. Add module: `git submodule add https://github.com/titledk/ttools-backups.git ttools/backups;`
+2. Add a `Backups` environment to `config.yml` - this is the environment that we'll be backing up to.
+3. Make sure that servers that need to be backed up can access the `Backups` environment!
+4. Set up a cronjob, see below
 
-Make sure that servers that need to be backed up can access the
-`Backups` environment!
-
-##  Configuration example
+###  Configuration example
 
 ```yml
 Environments:
@@ -29,12 +27,9 @@ Environments:
     Sshuser: "xxx"
 ```
 
-## Backup methods
-
-See `docs/methods` for implemented methods.
 
 
-## A good default
+## Cronjob setup
 
 This is a good default, using the default settings:
 
