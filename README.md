@@ -26,7 +26,8 @@ This is a good default, using the default settings:
 * every 8 hours a local backup is created, 6 are kept
 * every 8 hours a remote backup is created, 24 are kept
 
-	0 4,12,20 * * * /ABSOLUTE_REPO_PATH/ttools/sitesync-core/lib/dump-current-site.sh backup Test
-	30 0,8,16 * * * /ABSOLUTE_REPO_PATH/ttools/backups/lib/dump-and-sync-current-site.sh Test
-
+```sh
+0 4,12,20 * * * /ABSOLUTE_REPO_PATH/ttools/sitesync-core/lib/dump-current-site.sh backup Test
+30 0,8,16 * * * /ABSOLUTE_REPO_PATH/ttools/backups/lib/dump-and-sync-current-site.sh Test
+```
 
