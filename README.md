@@ -7,12 +7,27 @@ _We'll be implementing different methods as needed._
 
 ## Configure ttools
 
-Add a `Backups` environment to `config.yml`.    
-Remote backups will be backed up to that environment.
+Add a `Backups` environment to `config.yml` - this is the environment that we'll be backing up to.
 
 Make sure that servers that need to be backed up can access the
 `Backups` environment!
 
+##  Configuration example
+
+```yml
+Environments:
+  Live:
+    Host: "xxx"
+    Sshuser: "xxx"
+    Repodir: "xxx"
+    Backups:
+      RemoteBackupPath: "xxx"
+      RemoteBackupKeep: 96
+  Backups:
+    Host: "xxx"
+    Repodir: "xxx"
+    Sshuser: "xxx"
+```
 
 ## Backup methods
 
