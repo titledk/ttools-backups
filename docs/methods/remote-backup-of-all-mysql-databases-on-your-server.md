@@ -1,4 +1,4 @@
-# Remote backup of all Mysql databases on you Server
+# Remote backup of all Mysql databases on your Server
 
 _This requires you to have root access to your server_
 
